@@ -1593,6 +1593,8 @@ static void get_device_subsystem_info(struct udev_device *dev, char const *subsy
         }
     }
 
+    if(!desc->version) desc->version = 0x0100;
+
     if (!desc->manufacturer[0] && (tmp = udev_device_get_sysattr_value(dev, "manufacturer")))
         ntdll_umbstowcs(tmp, strlen(tmp) + 1, desc->manufacturer, ARRAY_SIZE(desc->manufacturer));
 
